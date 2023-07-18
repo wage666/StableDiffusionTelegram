@@ -12,7 +12,7 @@ import random
 
 load_dotenv()
 TG_TOKEN = os.getenv('YOUR_TOKEN_HERE')
-MODEL_GENERATION = 'your_generation_model_data_path'
+MODEL_GENERATION = 'd4niel92/surface-segmentation-model'
 
 LOW_VRAM_MODE = (os.getenv('LOW_VRAM', 'true').lower() == 'true')
 revision = "fp16" if LOW_VRAM_MODE else None

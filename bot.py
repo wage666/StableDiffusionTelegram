@@ -26,12 +26,12 @@ revision = "fp16" if LOW_VRAM_MODE else None
 torch_dtype = torch.float16 if LOW_VRAM_MODE else None
 
 # load the text2img pipeline
-pipe = StableDiffusionPipeline.from_pretrained(MODEL_DATA, revision=revision, torch_dtype=torch_dtype, use_auth_token=USE_AUTH_TOKEN)
-pipe = pipe.to("cpu")
+pipe = StableDiffusionPipeline.from_pretrained(MODEL_DATA, use_auth_token=USE_AUTH_TOKEN)
+pipe = pipe.to("cuda")
 
 # load the img2img pipeline
-img2imgPipe = StableDiffusionImg2ImgPipeline.from_pretrained(MODEL_DATA, revision=revision, torch_dtype=torch_dtype, use_auth_token=USE_AUTH_TOKEN)
-img2imgPipe = img2imgPipe.to("cpu")
+img2imgPipe = StableDiffusionImg2ImgPipeline.from_pretrained(MODEL_DATA, use_auth_token=USE_AUTH_TOKEN)
+img2imgPipe = img2imgPipe.to("cuda")
 
 # disable safety checker if wanted
 def dummy_checker(images, **kwargs):

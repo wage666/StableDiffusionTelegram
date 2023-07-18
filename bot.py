@@ -12,7 +12,7 @@ import random
 
 load_dotenv()
 TG_TOKEN = os.getenv('YOUR_TOKEN_HERE')
-MODEL_GENERATION = 'shahidul034/text_generation_bangla_model'
+MODEL_GENERATION = 'https://huggingface.co/chirag2706/gpt2_code_generation_model'
 
 LOW_VRAM_MODE = (os.getenv('LOW_VRAM', 'true').lower() == 'true')
 revision = "fp16" if LOW_VRAM_MODE else None
